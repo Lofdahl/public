@@ -1,0 +1,12 @@
+services:
+  weekmenu:
+    build: .
+    container_name: weekmenu
+    env_file:
+      - .env
+    ports:
+      - "8085:8080"
+    restart: unless-stopped
+    user: "${UID}:${GID}"
+    volumes:
+      - $DOCKERDIR/weekmenu/data:/app/data
